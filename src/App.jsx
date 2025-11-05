@@ -94,13 +94,13 @@ function App() {
   // const showConfetti = isFinished && percentage > 50;
 
   // ✅ Show loading screen
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center text-white text-xl bg-gray-900">
-        Loading Questions...
-      </div>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <div className="min-h-screen flex items-center justify-center text-white text-xl bg-gray-900">
+  //       Loading Questions...
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center p-4">
@@ -132,7 +132,7 @@ function App() {
           <div className="mt-6 min-h-[60px]">
             {showFeedback && (
               <button
-                className="bg-gradient-to-r from-indigo-600 to-purple-600 py-3 px-6 rounded-lg font-medium shadow-lg cursor-pointer"
+                className="bg-linear-to-r from-indigo-600 to-purple-600 py-3 px-6 rounded-lg font-medium shadow-lg cursor-pointer"
                 onClick={goToNext}
               >
                 {currentQuestion + 1 < questions.length
@@ -151,7 +151,7 @@ function App() {
             {Math.round((score / questions.length) * 100)}%)
           </p>
           <button
-            className="bg-gradient-to-r from-indigo-600 to-purple-600 py-3 px-6 rounded-lg font-medium shadow-lg cursor-pointer"
+            className="bg-linear-to-r from-indigo-600 to-purple-600 py-3 px-6 rounded-lg font-medium shadow-lg cursor-pointer"
             onClick={restartQuiz}
           >
             Restart Quiz
