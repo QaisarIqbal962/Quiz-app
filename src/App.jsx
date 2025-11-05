@@ -83,15 +83,15 @@ function App() {
   };
 
   // ✅ Progress bar calculation
-  const calculateProgress = () => {
-    if (isFinished) return 100;
-    const baseProgress = (currentQuestion / questions.length) * 100;
-    const questionProgress = selectedAnswer ? (1 / questions.length) * 100 : 0;
-    return baseProgress + questionProgress;
-  };
+  // const calculateProgress = () => {
+  //   if (isFinished) return 100;
+  //   const baseProgress = (currentQuestion / questions.length) * 100;
+  //   const questionProgress = selectedAnswer ? (1 / questions.length) * 100 : 0;
+  //   return baseProgress + questionProgress;
+  // };
 
-  const percentage = (score / questions.length) * 100;
-  const showConfetti = isFinished && percentage > 50;
+  // const percentage = (score / questions.length) * 100;
+  // const showConfetti = isFinished && percentage > 50;
 
   // ✅ Show loading screen
   if (loading) {
