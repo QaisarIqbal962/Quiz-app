@@ -43,6 +43,17 @@ function App() {
     }
   };
 
+  const handleAnswer = (option) => {
+    if (showFeedback) return;
+    setSelectedAnswer(option);
+    setShowFeedback(true);
+    
+    if (option === questions[currentQuestion].answer) {
+      setScore((prev) => prev + 1);
+    }
+
+  }
+
   // Move to next question
   const goToNext = () => {
     if (currentQuestion + 1 < questions.length) {
