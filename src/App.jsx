@@ -13,7 +13,9 @@ function App() {
 
   //  Fetch questions from The Trivia API
   useEffect(() => {
-    fetch("https://the-trivia-api.com/v2/questions?limit=10&categories=technology")
+    fetch(
+      "https://the-trivia-api.com/v2/questions?limit=10&categories=technology"
+    )
       .then((res) => res.json())
       .then((data) => {
         const formatted = data.map((q) => ({
@@ -43,17 +45,6 @@ function App() {
     }
   };
 
-  const handleAnswer = (option) => {
-    if (showFeedback) return;
-    setSelectedAnswer(option);
-    setShowFeedback(true);
-    
-    if (option === questions[currentQuestion].answer) {
-      setScore((prev) => prev + 1);
-    }
-
-  }
-
   // Move to next question
   const goToNext = () => {
     if (currentQuestion + 1 < questions.length) {
@@ -74,7 +65,9 @@ function App() {
     setIsFinished(false);
     setLoading(true);
 
-    fetch("https://the-trivia-api.com/v2/questions?limit=10&categories=technology")
+    fetch(
+      "https://the-trivia-api.com/v2/questions?limit=10&categories=technology"
+    )
       .then((res) => res.json())
       .then((data) => {
         const formatted = data.map((q) => ({
