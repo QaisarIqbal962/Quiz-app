@@ -77,10 +77,19 @@ function App() {
       //   setLoading(false);
       // })
 
+      .then ((data) => {
+        const formatted = data.map((q) => ({
+         question: q.question.text,
+         options: [...q.incorrectAnswers, q.correctAnswer].sort(
+          ()=> Math.random() - 0.5
+         ),
+        }))
+      })
 
 
 
-      
+
+
       .catch((err) => {
         console.error("Error refetching questions:", err);
         setLoading(false);
