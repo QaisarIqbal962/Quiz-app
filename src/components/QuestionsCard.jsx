@@ -31,19 +31,24 @@ const QuestionCard = ({
             : Math.round((current / total) * 100) + "% complete"}
         </span>
       </div>
-      <p className="text-xl font-medium mb-6">{question}</p>
+
+      {/* ✅ Fix HTML entities */}
+      <p
+        className="text-xl font-medium mb-6"
+        dangerouslySetInnerHTML={{ __html: question }}
+      />
+
       <div className="grid gap-3">
         {options.map((option, index) => (
           <button
-            className={`${getButtonStyle(
-              option
-            )} text-left px-4 py-3 cursor-pointer rounded-lg text-white `}
             key={index}
             onClick={() => onAnswer(option)}
             disabled={showFeedback}
-          >
-            {option}
-          </button>
+            className={`${getButtonStyle(
+              option
+            )} text-left px-4 py-3 cursor-pointer rounded-lg text-white`}
+            dangerouslySetInnerHTML={{ __html: option }}
+          />
         ))}
       </div>
     </div>
