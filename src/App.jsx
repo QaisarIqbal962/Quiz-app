@@ -11,7 +11,7 @@ function App() {
   const [showFeedback, setShowFeedback] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  // ✅ Fetch questions from The Trivia API
+  //  Fetch questions from The Trivia API
   useEffect(() => {
     fetch("https://the-trivia-api.com/v2/questions?limit=10&categories=technology")
       .then((res) => res.json())
@@ -32,7 +32,7 @@ function App() {
       });
   }, []);
 
-  // ✅ Handle answer selection
+  //  Handle answer selection
   const handleAnswer = (option) => {
     if (showFeedback) return;
     setSelectedAnswer(option);
@@ -43,7 +43,7 @@ function App() {
     }
   };
 
-  // ✅ Move to next question
+  // Move to next question
   const goToNext = () => {
     if (currentQuestion + 1 < questions.length) {
       setCurrentQuestion((prev) => prev + 1);
@@ -54,7 +54,7 @@ function App() {
     }
   };
 
-  // ✅ Restart Quiz (refetch new random questions)
+  // Restart Quiz (refetch new random questions)
   const restartQuiz = () => {
     setCurrentQuestion(0);
     setScore(0);
@@ -82,25 +82,25 @@ function App() {
       });
   };
 
-  // ✅ Progress bar calculation
-  // const calculateProgress = () => {
-  //   if (isFinished) return 100;
-  //   const baseProgress = (currentQuestion / questions.length) * 100;
-  //   const questionProgress = selectedAnswer ? (1 / questions.length) * 100 : 0;
-  //   return baseProgress + questionProgress;
-  // };
+  // Progress bar calculation
+  const calculateProgress = () => {
+    if (isFinished) return 100;
+    const baseProgress = (currentQuestion / questions.length) * 100;
+    const questionProgress = selectedAnswer ? (1 / questions.length) * 100 : 0;
+    return baseProgress + questionProgress;
+  };
 
-  // const percentage = (score / questions.length) * 100;
-  // const showConfetti = isFinished && percentage > 50;
+  const percentage = (score / questions.length) * 100;
+  const showConfetti = isFinished && percentage > 50;
 
-  // ✅ Show loading screen
-  // if (loading) {
-  //   return (
-  //     <div className="min-h-screen flex items-center justify-center text-white text-xl bg-gray-900">
-  //       Loading Questions...
-  //     </div>
-  //   );
-  // }
+  //  Show loading screen
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center text-white text-xl bg-gray-900">
+        Loading Questions...
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center p-4">

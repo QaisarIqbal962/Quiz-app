@@ -32,7 +32,7 @@ const QuestionCard = ({
         </span>
       </div>
 
-      {/* ✅ Fix HTML entities */}
+      {/* Fix HTML entities */}
       <p
         className="text-xl font-medium mb-6"
         dangerouslySetInnerHTML={{ __html: question }}
