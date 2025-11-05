@@ -65,31 +65,17 @@ function App() {
 
     fetch("https://the-trivia-api.com/v2/questions?limit=10&categories=technology")
       .then((res) => res.json())
-      // .then((data) => {
-      //   const formatted = data.map((q) => ({
-      //     question: q.question.text,
-      //     options: [...q.incorrectAnswers, q.correctAnswer].sort(
-      //       () => Math.random() - 0.5
-      //     ),
-      //     answer: q.correctAnswer,
-      //   }));
-      //   setQuestions(formatted);
-      //   setLoading(false);
-      // })
-
-      .then ((data) => {
+      .then((data) => {
         const formatted = data.map((q) => ({
-         question: q.question.text,
-         options: [...q.incorrectAnswers, q.correctAnswer].sort(
-          ()=> Math.random() - 0.5
-         ),
-        }))
+          question: q.question.text,
+          options: [...q.incorrectAnswers, q.correctAnswer].sort(
+            () => Math.random() - 0.5
+          ),
+          answer: q.correctAnswer,
+        }));
+        setQuestions(formatted);
+        setLoading(false);
       })
-
-
-
-
-
       .catch((err) => {
         console.error("Error refetching questions:", err);
         setLoading(false);
